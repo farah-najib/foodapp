@@ -1,7 +1,10 @@
 
 import Home from './pages/Home'
 import NavBar from './components/Navbar'
+import Favorites from './pages/FavoritePage'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { useState } from 'react'
+import Footer from './components/Footer';
 
 import './App.css'
 
@@ -14,8 +17,21 @@ const handleSearch = (query) => {
 
   return (
       <>
-          <NavBar onSearch={handleSearch} />
-          <Home searchQuery={searchQuery} />
+          {' '}
+          <Router>
+              <NavBar onSearch={handleSearch} />
+              <div className="min-h-screen pb-16">
+                  <Routes>
+                      <Route
+                          path="/"
+                          element={<Home searchQuery={searchQuery} />}
+                      />
+
+                      <Route path="/favorites" element={<Favorites />} />
+                  </Routes>
+              </div>
+              <Footer />
+          </Router>
       </>
   )
 }
