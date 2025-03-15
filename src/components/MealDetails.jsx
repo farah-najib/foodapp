@@ -5,7 +5,7 @@
 // </div>
 
 
- const MealDetails = ({ meal, onClose }) => {
+ const Mealdetails = ({ meal, onClose }) => {
     return ( <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
             <div className="bg-white p-8 rounded-lg w-full max-w-4xl max-h-[80%] overflow-y-auto relative">
                 <button
@@ -46,4 +46,4 @@
         </div>
     )
 }
-export default MealDetails
+export default Mealdetails
