@@ -1,7 +1,7 @@
 import { useEffect, useState, useCallback } from 'react'
 import Card from '../components/Card'
 import TheMealApi from '../services/TheMealApi'
-import Mealdetails from '../components/Mealdetails'
+import MealDetails from '../components/Mealdetails'
 
 
 function Home({ searchQuery }) {
@@ -75,7 +75,7 @@ const [selectedMeal, setSelectedMeal] = useState(null)
                 <p>No meals found.</p>
             )}
             {selectedMeal && (
-                <Mealdetails
+                <MealDetails
                     meal={selectedMeal}
                     onClose={() => setSelectedMeal(null)}
                 />
