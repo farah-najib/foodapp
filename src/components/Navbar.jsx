@@ -5,8 +5,8 @@ const NavBar = ({  onSearch }) => {
     const [searchQuery, setSearchQuery] = useState('')
     const [theme, setTheme] = useState(
         localStorage.getItem('theme') || 'valentine'
-    ) // Default to light
-    const location = useLocation() // Get the current route
+    )
+    const location = useLocation()
 
     useEffect(() => {
         document.documentElement.setAttribute('data-theme', theme)
@@ -18,9 +18,9 @@ const NavBar = ({  onSearch }) => {
     const handleSearchChange = (e) => {
         const query = e.target.value
         setSearchQuery(query)
-        onSearch(query) // Update the search query in App.js
+        onSearch(query)
     }
-    // Hide search and theme toggle on the favorites page
+    
     const isFavoritesPage = location.pathname === '/favorites'
     return (
         <div className="navbar bg-neutral fixed top-0 left-0 right-0 z-40 shadow-sm h-16 p-8 box-border ">
