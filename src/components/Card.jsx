@@ -25,7 +25,7 @@ const Card = ({ meal, onShowRecipe, onToggleFavorite, isFavorite }) => {
                 <h2 className="card-title text-lg font-extrabold h-15 ">
                     {meal.strMeal}
                 </h2>
-                <div className="flex h-10">
+                <div className="flex h-10 ">
                     <div className="w-20">
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -67,7 +67,7 @@ const Card = ({ meal, onShowRecipe, onToggleFavorite, isFavorite }) => {
                         {meal.strCategory}
                     </div>
                 </div>
-                <div className="p-0 card-actions justify-end">
+                <div className="p-0 flex justify-between mt-10">
                     <button
                         className="btn btn-primary"
                         onClick={() => {

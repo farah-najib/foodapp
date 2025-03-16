@@ -7,11 +7,10 @@ import { useMealSelection } from '../hooks/useMealSelection'
 
 function Home({ searchQuery }) {
     const [meals, setMeals] = useState([])
-   const { favorites, addFavorite, removeFavorite } = useFavorites()
-   const { selectedMeal, handleShowRecipe } = useMealSelection()
+    const { favorites, addFavorite, removeFavorite } = useFavorites()
+    const { selectedMeal, handleShowRecipe } = useMealSelection()
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState(null)
-
 
     const getMeals = useCallback(async () => {
         setLoading(true)
@@ -42,7 +41,7 @@ function Home({ searchQuery }) {
     }, [getMeals, searchQuery])
 
     return (
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4  mt-30 ">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 ">
             {loading ? (
                 <p>Loading...</p>
             ) : error ? (
@@ -61,7 +60,6 @@ function Home({ searchQuery }) {
                         isFavorite={favorites.some(
                             (fav) => fav.idMeal === meal.idMeal
                         )}
-                       
                     />
                 ))
             ) : (

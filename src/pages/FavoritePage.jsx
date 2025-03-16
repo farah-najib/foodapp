@@ -10,8 +10,8 @@ function FavoritePage() {
 
     return (
         <div>
-            <h1>Favorite Meals</h1>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4  mt-30">
+            <h1 className="text-3xl flex justify-center mt-10">Favorite Meals</h1>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4  mt-10">
                 {favorites.length > 0 ? (
                     favorites.map((meal) => (
                         <Card
