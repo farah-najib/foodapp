@@ -1,4 +1,3 @@
-
 import Home from './pages/Home'
 import NavBar from './components/Navbar'
 import Favorites from './pages/FavoritePage'
@@ -17,10 +16,10 @@ const handleSearch = (query) => {
 
   return (
       <>
-          {' '}
           <Router>
               <NavBar onSearch={handleSearch} />
-              <div className="min-h-screen pb-16">
+
+              <div className="flex justify-center overflow-scroll .bg-accent-content  h-170">
                   <Routes>
                       <Route
                           path="/"

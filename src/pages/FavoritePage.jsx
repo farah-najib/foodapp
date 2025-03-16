@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import Card from '../components/Card'
+import MealDetails from '../components/Mealdetails'
 function FavoritePage() {
     const [favorites, setFavorites] = useState([])
 
@@ -14,15 +15,30 @@ function FavoritePage() {
         setFavorites(updatedFavorites)
         localStorage.setItem('favorites', JSON.stringify(updatedFavorites))
     }
+const [selectedMeal, setSelectedMeal] = useState(null)
+    const handleShowRecipe = (meal) => {
+        setSelectedMeal(meal) // Update state first
+    }
+
+    useEffect(() => {
+        if (selectedMeal) {
+            const modal = document.getElementById('meal_modal')
+            if (modal) {
+                modal.showModal()
+            }
+        }
+    }, [selectedMeal])
 
     return (
-        <div>
+    <div>
             <h1>Favorite Meals</h1>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4  mt-30">
             {favorites.length > 0 ? (
                 favorites.map((meal) => (
                     <Card
                         key={meal.idMeal}
                         meal={meal}
+                        onShowRecipe={handleShowRecipe}
                         onToggleFavorite={removeFavorite}
                         isFavorite={true}
                     />
@@ -30,7 +46,9 @@ function FavoritePage() {
             ) : (
                 <p>No favorite meals yet.</p>
             )}
-        </div>
+
+            {selectedMeal && <MealDetails meal={selectedMeal} />}
+        </div></div>
     )
 }
 
