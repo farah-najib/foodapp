@@ -13,7 +13,7 @@ const NavBar = ({  onSearch }) => {
         localStorage.setItem('theme', theme)
     }, [theme])
     const toggleTheme = () => {
-        setTheme(theme === 'valentine' ? 'synthwave' : 'valentine')
+        setTheme(theme === 'valentine' ? 'coffee' : 'valentine')
     }
     const handleSearchChange = (e) => {
         const query = e.target.value
@@ -23,7 +23,7 @@ const NavBar = ({  onSearch }) => {
 
     const isFavoritesPage = location.pathname === '/favorites'
     return (
-        <div className="navbar bg-neutral  top-0 left-0 right-0 z-40 shadow-sm h-16 p-8 box-border ">
+        <div className="navbar bg-neutral-content  top-0 left-0 right-0 z-40 shadow-sm h-16 p-8 box-border ">
             <div className="flex-1">
                 <Link to="/" className="btn btn-ghost text-xl">
                     Recipe App
