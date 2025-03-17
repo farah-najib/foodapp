@@ -1,6 +1,6 @@
 const Card = ({ meal, onShowRecipe, onToggleFavorite, isFavorite }) => {
     return (
-        <div className="card bg-neutral-content w-80 shadow-sm ">
+        <div className="card bg-secondary w-80 shadow-sm ">
             <div className="absolute top-2 left-2 flex flex-wrap gap-2">
                 {Array.isArray(meal.strTags)
                     ? meal.strTags.map((tag, index) => (
