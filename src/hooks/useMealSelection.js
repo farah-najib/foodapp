@@ -9,6 +9,14 @@ export function useMealSelection() {
         }
     }
 
+        const closeMealModal = () => {
+            const modal = document.getElementById('meal_modal')
+            if (modal) {
+                modal.close()
+            }
+            setSelectedMeal(null)
+        }
+
     useEffect(() => {
         if (selectedMeal) {
             const modal = document.getElementById('meal_modal')
@@ -18,5 +26,5 @@ export function useMealSelection() {
         }
     }, [selectedMeal])
 
-    return { selectedMeal, handleShowRecipe }
+     return { selectedMeal, handleShowRecipe, closeMealModal }
 }

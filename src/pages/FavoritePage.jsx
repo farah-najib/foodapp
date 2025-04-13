@@ -3,11 +3,8 @@ import MealDetails from '../components/Mealdetails'
 import { useFavorites } from '../hooks/useFavorites'
 import { useMealSelection } from '../hooks/useMealSelection'
 function FavoritePage() {
-
     const { favorites, removeFavorite } = useFavorites()
     const { selectedMeal, handleShowRecipe } = useMealSelection()
-
-
     return (
         <div>
             <h1 className="text-3xl flex justify-center mt-10">Favorite Meals</h1>

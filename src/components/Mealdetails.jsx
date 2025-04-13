@@ -1,9 +1,12 @@
-const MealDetails = ({ meal }) => {
+const MealDetails = ({ meal,onClose }) => {
     return (
         <dialog id="meal_modal" className="modal">
             <div className="modal-box w-full max-w-4xl">
                 <form method="dialog">
-                    <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
+                    <button
+                        className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
+                        onClick={onClose}
+                    >
                         ✕
                     </button>
                 </form>
@@ -85,7 +88,9 @@ const MealDetails = ({ meal }) => {
                 <p className="mt-2">
                     <strong>Instructions:</strong>
                 </p>
-                <p>{meal.strInstructions}</p>
+                {meal.strInstructions.split('\r\n').map((str) => (
+                    <p className="mb-2">{str}</p>
+                ))}
             </div>
         </dialog>
     )

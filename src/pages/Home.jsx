@@ -8,7 +8,7 @@ import { useMealSelection } from '../hooks/useMealSelection'
 function Home({ searchQuery }) {
     const [meals, setMeals] = useState([])
     const { favorites, addFavorite, removeFavorite } = useFavorites()
-    const { selectedMeal, handleShowRecipe } = useMealSelection()
+    const { selectedMeal, handleShowRecipe, closeMealModal } = useMealSelection()
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState(null)
 
@@ -19,7 +19,7 @@ function Home({ searchQuery }) {
         try {
             const response = searchQuery
                 ? await TheMealApi.getMealByName(searchQuery) // Search by name if there's a query
-                : await TheMealApi.getMealsByFirstLetter() // Default to fetching by first letter
+                : await TheMealApi.getMeals() // Default to fetching by first letter
 
             console.log('API Response:', response) // Debugging
 
@@ -65,7 +65,9 @@ function Home({ searchQuery }) {
             ) : (
                 <p>No meals found.</p>
             )}
-            {selectedMeal && <MealDetails meal={selectedMeal} />}
+            {selectedMeal && (
+                <MealDetails meal={selectedMeal} onClose={closeMealModal} />
+            )}
         </div>
     )
 }

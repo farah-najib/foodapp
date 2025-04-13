@@ -14,7 +14,7 @@ const axiosInstance = () => {
 }
 
 // Generic GET function
-const get = async(endpoint) => {
+const get = async (endpoint) => {
     const response = await axiosInstance().get(endpoint)
     // if (FAKE_DELAY) {
     //     await new Promise((r) => setTimeout(r, FAKE_DELAY))
@@ -22,23 +22,18 @@ const get = async(endpoint) => {
     return response.data
 }
 
-
 // API functionswww.themealdb.com/api/json/v1/1/search.php?s=Arrabiata
 //get meals by first letter
- const getMealsByFirstLetter = async () => {
-     return get(`${TEST_KEY}/search.php?f=s`)
- }
+const getMeals = async () => {
+    return get(`${TEST_KEY}/search.php?f=s`)
+}
 
 // Search meal by name const getMealByName = async (productId: string)
- const getMealByName = async (mealName) => {
-     return get(`${TEST_KEY}/search.php?s=${mealName}`)
- }
-
-
-
+const getMealByName = async (mealName) => {
+    return get(`${TEST_KEY}/search.php?s=${mealName}`)
+}
 
 export default {
-    getMealsByFirstLetter,
-    getMealByName,
-
+    getMeals,
+    getMealByName
 }

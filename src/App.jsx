@@ -19,7 +19,7 @@ const handleSearch = (query) => {
           <Router>
               <NavBar onSearch={handleSearch} />
 
-              <div className="flex justify-center overflow-scroll bg-accent-content h-160">
+              <div className="flex justify-center overflow-scroll bg-accent-content h-160 p-10 p">
                   <Routes>
                       <Route
                           path="/"
